@@ -1,6 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 
+// Set a fixed target date 90 days from now.
+// This calculation runs only once when the code is first interpreted.
+const futureDate = new Date();
+futureDate.setDate(futureDate.getDate() + 90);
+const TARGET_DATE = futureDate.getTime();
+
+
 const useCountdown = (targetDate: number) => {
   const [timeLeft, setTimeLeft] = useState(targetDate - new Date().getTime());
 
@@ -21,8 +28,7 @@ const useCountdown = (targetDate: number) => {
 };
 
 const Countdown: React.FC = () => {
-  const [targetDate] = useState(new Date().getTime() + 90 * 24 * 60 * 60 * 1000);
-  const { days, hours, minutes, seconds } = useCountdown(targetDate);
+  const { days, hours, minutes, seconds } = useCountdown(TARGET_DATE);
 
   const formatTime = (time: number) => time.toString().padStart(2, '0');
 
