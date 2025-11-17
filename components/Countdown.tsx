@@ -21,7 +21,7 @@ const useCountdown = (targetDate: number) => {
 };
 
 const Countdown: React.FC = () => {
-  const [targetDate] = useState(new Date().getTime() + 14 * 24 * 60 * 60 * 1000);
+  const [targetDate] = useState(new Date().getTime() + 90 * 24 * 60 * 60 * 1000);
   const { days, hours, minutes, seconds } = useCountdown(targetDate);
 
   const formatTime = (time: number) => time.toString().padStart(2, '0');

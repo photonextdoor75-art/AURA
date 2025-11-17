@@ -99,12 +99,12 @@ const Header: React.FC = () => {
             </div>
             <div className="relative">
                  <NavLink
-                    to="/nous-recrutons"
+                    to="/devenez-modele"
                     className={({ isActive }) =>
                       `${navLinkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`
                     }
                 >
-                    <span className="relative z-10">NOUS RECRUTONS</span>
+                    <span className="relative z-10">DEVENEZ MODÈLE</span>
                     <span className="absolute -inset-1 bg-pink-300 opacity-20 blur-lg animate-pulse"></span>
                  </NavLink>
             </div>
@@ -146,7 +146,7 @@ const Header: React.FC = () => {
             <button onClick={handleLockedClick} className="text-gray-400 hover:text-white transition-colors">Prêt-à-porter</button>
             <button onClick={handleLockedClick} className="text-gray-400 hover:text-white transition-colors">Bikinis</button>
             <button onClick={handleLockedClick} className="text-gray-400 hover:text-white transition-colors">Lingerie</button>
-            <NavLink to="/nous-recrutons" onClick={closeMenu} className={({ isActive }) => `${isActive ? activeLinkClasses : inactiveLinkClasses}`}>NOUS RECRUTONS</NavLink>
+            <NavLink to="/devenez-modele" onClick={closeMenu} className={({ isActive }) => `${isActive ? activeLinkClasses : inactiveLinkClasses}`}>DEVENEZ MODÈLE</NavLink>
             <NavLink to="/contact" onClick={closeMenu} className={({ isActive }) => `${isActive ? activeLinkClasses : inactiveLinkClasses}`}>Contact</NavLink>
              <div className="absolute bottom-16">
                  <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">

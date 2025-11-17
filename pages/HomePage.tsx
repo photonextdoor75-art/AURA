@@ -52,15 +52,14 @@ const HomePage: React.FC = () => {
         <div className="relative z-10 mt-16 p-8 max-w-3xl w-full text-center bg-black bg-opacity-20 rounded-lg">
             <h2 className="text-3xl font-light tracking-wider text-white">QUEL TYPE D'AURA GIRL ÊTES-VOUS ?</h2>
             <p className="text-gray-300 mt-4 max-w-xl mx-auto">
-                Oubliez ce que vous croyez savoir sur vous-même. En chaque femme sommeille une énergie secrète. 
-                Une Aura qui ne demande qu'à être révélée. Ce test n'est pas un jeu. C'est une porte. 
-                Découvrez la vôtre et, peut-être, soyez choisie pour devenir notre égérie et remporter 1000€ de bons d'achat.
+                Participez à notre quiz pour révéler votre personnalité et tentez de gagner un bon d'achat de 500€. 
+                Les profils les plus audacieux pourraient découvrir une opportunité unique...
             </p>
             <button 
                 onClick={() => setIsQuizOpen(true)}
                 className="mt-8 bg-white text-black px-8 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors duration-300"
             >
-                DÉVOILER VOTRE AURA
+                COMMENCER LE QUIZ
             </button>
         </div>
     </div>
