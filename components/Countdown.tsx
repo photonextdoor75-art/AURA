@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 const Countdown: React.FC = () => {
@@ -25,24 +26,17 @@ const Countdown: React.FC = () => {
     return () => clearInterval(interval);
   }, [TARGET_DATE]);
 
+  // Si le temps est écoulé, on bloque l'affichage à 0 mais on garde le composant visible
+  const isFinished = timeLeft <= 0;
+  const displayTime = isFinished ? 0 : timeLeft;
+
   // Calcul des unités de temps
-  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+  const days = Math.floor(displayTime / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((displayTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((displayTime % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((displayTime % (1000 * 60)) / 1000);
 
   const formatTime = (time: number) => time.toString().padStart(2, '0');
-
-  // Rendu conditionnel : Si le temps est écoulé
-  if (timeLeft < 0) {
-    return (
-      <div className="text-center animate-fade-in">
-        <h2 className="text-4xl md:text-5xl font-light tracking-[0.2em] text-white">BIENVENUE</h2>
-        <div className="h-px w-24 bg-white mx-auto my-6"></div>
-        <p className="text-lg text-gray-300 font-light uppercase tracking-widest">L'ère Aura commence maintenant.</p>
-      </div>
-    );
-  }
 
   // Empêche le rendu côté serveur (SSR) pour éviter le décalage visuel initial
   if (!isClient) {
@@ -51,9 +45,17 @@ const Countdown: React.FC = () => {
 
   return (
     <div className="text-center">
-      <p className="text-xs md:text-sm font-medium tracking-[0.3em] text-gray-400 mb-8 uppercase">
-        Ouverture Officielle : 15 Novembre 2025
-      </p>
+      {isFinished ? (
+        <div className="mb-8 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-light tracking-[0.2em] text-white">BIENVENUE</h2>
+            <div className="h-px w-24 bg-white mx-auto my-6"></div>
+            <p className="text-lg text-gray-300 font-light uppercase tracking-widest">L'ère Aura commence maintenant.</p>
+        </div>
+      ) : (
+        <p className="text-xs md:text-sm font-medium tracking-[0.3em] text-gray-400 mb-8 uppercase">
+            Ouverture Officielle : 15 Novembre 2025
+        </p>
+      )}
       
       <div className="flex justify-center items-start space-x-4 md:space-x-10 text-white">
         {/* Jours */}

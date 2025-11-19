@@ -38,6 +38,20 @@
       .animate-fade-in-up {
         animation: fade-in-up 0.3s ease-out forwards;
       }
+
+      /* Animation Battement de Coeur Réaliste */
+      @keyframes heartbeat-custom {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+        14% { transform: scale(1.05); box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.2); }
+        28% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+        42% { transform: scale(1.05); box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.2); }
+        70% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+      }
+      
+      .animate-heartbeat-custom {
+        animation: heartbeat-custom 2s infinite ease-in-out;
+      }
     </style>
   <script type="importmap">
 {

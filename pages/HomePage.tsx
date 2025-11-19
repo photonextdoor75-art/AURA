@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Countdown from '../components/Countdown';
 import Quiz from '../components/Quiz';
 import SEO from '../components/SEO';
@@ -54,8 +55,18 @@ const HomePage: React.FC = () => {
             </div>
         </div>
 
+        {/* CALL TO ACTION: Devenez Modèle (Heartbeat) */}
+        <div className="relative z-10 my-12">
+             <Link 
+                to="/devenez-modele"
+                className="inline-block bg-white text-black text-lg md:text-2xl font-bold tracking-[0.2em] px-10 py-5 rounded-full hover:bg-gray-200 transition-all duration-300 animate-heartbeat-custom shadow-2xl"
+            >
+                DEVENEZ MODÈLE
+            </Link>
+        </div>
+
         {/* Quiz Section */}
-        <div className="relative z-10 mt-16 p-8 max-w-3xl w-full text-center bg-black bg-opacity-20 rounded-lg">
+        <div className="relative z-10 mt-4 p-8 max-w-3xl w-full text-center bg-black bg-opacity-20 rounded-lg">
             <h2 className="text-3xl font-light tracking-wider text-white">QUEL TYPE D'AURA GIRL ÊTES-VOUS ?</h2>
             <p className="text-gray-300 mt-4 max-w-xl mx-auto">
                 Participez à notre quiz pour révéler votre personnalité et tentez de gagner un bon d'achat de 500€. 
@@ -63,7 +74,7 @@ const HomePage: React.FC = () => {
             </p>
             <button 
                 onClick={() => setIsQuizOpen(true)}
-                className="mt-8 bg-white text-black px-8 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors duration-300"
+                className="mt-8 bg-transparent border border-white text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-white hover:text-black transition-colors duration-300"
             >
                 COMMENCER LE QUIZ
             </button>
