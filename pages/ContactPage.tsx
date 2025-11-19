@@ -1,9 +1,14 @@
 
 import React from 'react';
+import SEO from '../components/SEO';
 
 const ContactPage: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center pt-20">
+      <SEO 
+        title="Contactez-nous | AURA PARIS" 
+        description="Une question ? Une candidature ? Contactez l'équipe Aura Paris directement." 
+      />
       <div className="container mx-auto px-6 text-center max-w-2xl">
         <div className="bg-black bg-opacity-30 border border-gray-800 p-10 rounded-lg">
             <h1 className="text-4xl font-light tracking-wider mb-6">CONTACT & CANDIDATURES</h1>

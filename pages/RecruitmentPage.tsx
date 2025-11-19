@@ -1,8 +1,14 @@
+
 import React from 'react';
+import SEO from '../components/SEO';
 
 const RecruitmentPage: React.FC = () => {
   return (
     <div className="pt-24 pb-12">
+      <SEO 
+        title="Casting & Recrutement | AURA PARIS" 
+        description="Rejoignez l'aventure Aura Paris. Nous ne cherchons pas des mannequins, mais des personnalités authentiques. Postulez maintenant." 
+      />
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="flex flex-col md:flex-row items-start gap-8">
             <div className="w-full md:w-1/2">

@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import Countdown from '../components/Countdown';
 import Quiz from '../components/Quiz';
+import SEO from '../components/SEO';
 
 const backgroundImages = [
   'https://picsum.photos/seed/robe/1920/1080', // Le décolleté plongeant d'une robe en satin.
@@ -23,6 +25,10 @@ const HomePage: React.FC = () => {
 
   return (
     <>
+    <SEO 
+        title="AURA PARIS | Official Website" 
+        description="Découvrez Aura Paris. Une marque visionnaire qui célèbre l'audace et l'authenticité. Ouverture officielle le 15 Novembre 2025." 
+    />
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-12">
         {/* Background Slideshow */}
         <div className="absolute inset-0 z-0">
