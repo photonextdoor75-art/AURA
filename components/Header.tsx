@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Popup from './Popup';
@@ -84,7 +83,7 @@ const Header: React.FC = () => {
                 onClick={handleLockedClick}
                 className="px-4 py-2 text-gray-500 cursor-pointer flex items-center"
               >
-                Bikinis
+                Maillots de bain
                 <LockIcon className="opacity-0 group-hover:opacity-100" />
               </button>
             </div>
@@ -97,6 +96,14 @@ const Header: React.FC = () => {
                 <LockIcon className="opacity-0 group-hover:opacity-100" />
               </button>
             </div>
+            <NavLink
+                to="/notre-histoire"
+                className={({ isActive }) =>
+                  `${navLinkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`
+                }
+            >
+              NOTRE HISTOIRE
+            </NavLink>
             <div className="relative">
                  <NavLink
                     to="/devenez-modele"
@@ -105,7 +112,7 @@ const Header: React.FC = () => {
                     }
                 >
                     <span className="relative z-10">DEVENEZ MODÈLE</span>
-                    <span className="absolute -inset-1 bg-pink-300 opacity-20 blur-lg animate-pulse"></span>
+                    <span className="absolute -inset-1 bg-pink-300 opacity-20 blur-lg animate-pulse-slow"></span>
                  </NavLink>
             </div>
              <NavLink
@@ -144,8 +151,9 @@ const Header: React.FC = () => {
         </div>
         <div className="flex flex-col items-center justify-center h-full -mt-16 space-y-8 text-xl uppercase tracking-widest">
             <button onClick={handleLockedClick} className="text-gray-400 hover:text-white transition-colors">Prêt-à-porter</button>
-            <button onClick={handleLockedClick} className="text-gray-400 hover:text-white transition-colors">Bikinis</button>
+            <button onClick={handleLockedClick} className="text-gray-400 hover:text-white transition-colors">Maillots de bain</button>
             <button onClick={handleLockedClick} className="text-gray-400 hover:text-white transition-colors">Lingerie</button>
+            <NavLink to="/notre-histoire" onClick={closeMenu} className={({ isActive }) => `${isActive ? activeLinkClasses : inactiveLinkClasses}`}>NOTRE HISTOIRE</NavLink>
             <NavLink to="/devenez-modele" onClick={closeMenu} className={({ isActive }) => `${isActive ? activeLinkClasses : inactiveLinkClasses}`}>DEVENEZ MODÈLE</NavLink>
             <NavLink to="/contact" onClick={closeMenu} className={({ isActive }) => `${isActive ? activeLinkClasses : inactiveLinkClasses}`}>Contact</NavLink>
              <div className="absolute bottom-16">

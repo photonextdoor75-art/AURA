@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import RecruitmentPage from './pages/RecruitmentPage';
 import ContactPage from './pages/ContactPage';
+import StoryPage from './pages/StoryPage';
 import Loader from './components/Loader';
 import SocialShare from './components/SocialShare';
 
@@ -30,6 +30,7 @@ const App: React.FC = () => {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/notre-histoire" element={<StoryPage />} />
               <Route path="/devenez-modele" element={<RecruitmentPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>

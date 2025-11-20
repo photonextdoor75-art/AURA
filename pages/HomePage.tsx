@@ -50,18 +50,24 @@ const HomePage: React.FC = () => {
         <div className="relative z-10 p-8 max-w-3xl w-full text-center">
             <h1 className="text-5xl md:text-7xl font-light tracking-widest mb-4">AURA PARIS</h1>
             <p className="text-lg italic text-gray-300 mb-12">"La mode n'est pas faite pour se cacher."</p>
-            <div className="bg-black bg-opacity-50 p-6 md:p-10 rounded-lg">
-                <Countdown />
+            
+            {/* Countdown sans effet lueur */}
+            <div className="relative bg-black bg-opacity-50 p-6 md:p-10 rounded-lg">
+                <div className="relative z-10">
+                    <Countdown />
+                </div>
             </div>
         </div>
 
-        {/* CALL TO ACTION: Devenez Modèle (Heartbeat) */}
+        {/* CALL TO ACTION: Devenez Modèle (Style Menu + Pulse Lent) */}
         <div className="relative z-10 my-12">
              <Link 
                 to="/devenez-modele"
-                className="inline-block bg-white text-black text-lg md:text-2xl font-bold tracking-[0.2em] px-10 py-5 rounded-full hover:bg-gray-200 transition-all duration-300 animate-heartbeat-custom shadow-2xl"
+                className="relative inline-block group px-10 py-5"
             >
-                DEVENEZ MODÈLE
+                <span className="relative z-10 text-lg md:text-2xl tracking-[0.2em] text-white transition-colors duration-300 group-hover:text-pink-100">DEVENEZ MODÈLE</span>
+                {/* Lueur pulsante identique au menu mais plus large et lente */}
+                <span className="absolute -inset-4 bg-pink-300 opacity-20 blur-2xl animate-pulse-slow rounded-full"></span>
             </Link>
         </div>
 

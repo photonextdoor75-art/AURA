@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AURA PARIS | L'ère de l'audace</title>
-    <meta name="description" content="Aura Paris - Marque de mode minimaliste et exclusive. Prêt-à-porter, Lingerie, Bikinis. Ouverture officielle le 15 novembre 2025." />
-    <meta name="keywords" content="mode, paris, minimaliste, lingerie, bikini, exclusif, aura, fashion" />
+    <meta name="description" content="Aura Paris - Marque de mode minimaliste et exclusive. Prêt-à-porter, Lingerie, Maillots de bain. Ouverture officielle le 15 novembre 2025." />
+    <meta name="keywords" content="mode, paris, minimaliste, lingerie, maillots de bain, exclusif, aura, fashion" />
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
@@ -20,15 +19,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
       body {
         font-family: 'Montserrat', sans-serif;
       }
+      .font-playfair {
+        font-family: 'Playfair Display', serif;
+      }
       @keyframes fade-in-up {
         from {
           opacity: 0;
-          transform: translateY(10px);
+          transform: translateY(30px);
         }
         to {
           opacity: 1;
@@ -37,6 +39,11 @@
       }
       .animate-fade-in-up {
         animation: fade-in-up 0.3s ease-out forwards;
+      }
+      
+      /* Animation spécifique pour la page histoire (plus lente) */
+      .animate-fade-in-scroll {
+        animation: fade-in-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       }
 
       /* Animation Battement de Coeur Réaliste */
@@ -51,6 +58,15 @@
       
       .animate-heartbeat-custom {
         animation: heartbeat-custom 2s infinite ease-in-out;
+      }
+
+      /* Animation Pulse Lente (4s) */
+      @keyframes pulse-slow {
+        0%, 100% { opacity: 1; }
+        50% { opacity: .5; }
+      }
+      .animate-pulse-slow {
+        animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       }
     </style>
   <script type="importmap">
