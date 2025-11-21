@@ -1,4 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 
 interface QuizProps {
   isOpen: boolean;
@@ -64,6 +67,7 @@ const Quiz: React.FC<QuizProps> = ({ isOpen, onClose }) => {
     const [auraPercentage, setAuraPercentage] = useState(0);
     const [instagram, setInstagram] = useState('');
     const [email, setEmail] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         if (!isOpen) {
@@ -75,6 +79,7 @@ const Quiz: React.FC<QuizProps> = ({ isOpen, onClose }) => {
                 setEmail('');
                 setScore(0);
                 setAuraPercentage(0);
+                setIsSubmitting(false);
             }, 500); // Delay reset to allow for closing animation
         }
     }, [isOpen]);
@@ -100,12 +105,30 @@ const Quiz: React.FC<QuizProps> = ({ isOpen, onClose }) => {
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setCurrentStep('submitted');
-        setTimeout(() => {
-            onClose();
-        }, 3000);
+        setIsSubmitting(true);
+
+        try {
+            // Enregistrement dans Firestore
+            await addDoc(collection(db, "candidates"), {
+                instagram,
+                email,
+                score,
+                status: 'new',
+                createdAt: serverTimestamp(),
+                source: 'quiz_winner'
+            });
+
+            setCurrentStep('submitted');
+            setTimeout(() => {
+                onClose();
+            }, 3000);
+        } catch (error) {
+            console.error("Erreur sauvegarde candidat:", error);
+            alert("Une erreur est survenue. Veuillez réessayer.");
+            setIsSubmitting(false);
+        }
     };
 
     if (!isOpen) {
@@ -177,9 +200,10 @@ const Quiz: React.FC<QuizProps> = ({ isOpen, onClose }) => {
                                 />
                                 <button 
                                     type="submit"
-                                    className="w-full bg-white text-black px-8 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors duration-300"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-white text-black px-8 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors duration-300 disabled:opacity-50"
                                 >
-                                    SAISIR MA CHANCE
+                                    {isSubmitting ? 'ENREGISTREMENT...' : 'SAISIR MA CHANCE'}
                                 </button>
                             </form>
                          </div>
